@@ -20,6 +20,9 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 // Models in use
 require('./models/User');
+require('./models/Posts');
+require('./models/Clubs');
+require('./models/Comment');
 // Routes in use
 app.use(require('./routes'));
 // When an invalid route is requested for, throw an error

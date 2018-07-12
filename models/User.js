@@ -38,10 +38,26 @@ var UserSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    is_moderator: {
+    isModerator: {
         type: Boolean,
         default: false
-    }
+    },
+    profilePic: {
+        type: String,
+        default: null
+    },
+    posts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
+    }],
+    clubs: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Club'
+    }],
+    likes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
+    }]
 }, {timestamps: true});
 
 UserSchema.plugin(uniqueValidator, {message: 'is already taken'});
